@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CondidatService {
 
  
-  private apiUrl = 'http://localhost:4005'; // Adjust to your backend URL
+  private apiUrl = 'http://localhost:4005/api'; // Adjust to your backend URL
 
   constructor(private http: HttpClient) { }
 

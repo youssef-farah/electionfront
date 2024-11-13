@@ -12,6 +12,11 @@ import { MainComponent } from './components/main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FavorisComponent } from './components/favoris/favoris.component';
 import { DetailsCandidatComponent } from './components/details-candidat/details-candidat.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { AddCandidatsComponent } from './components/admin/add-candidats/add-candidats.component';
+import { EditCandidatsComponent } from './components/admin/edit-candidats/edit-candidats.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,10 @@ import { DetailsCandidatComponent } from './components/details-candidat/details-
     LoginComponent,
     MainComponent,
     FavorisComponent,
-    DetailsCandidatComponent
+    DetailsCandidatComponent,
+    DashboardComponent,
+    AddCandidatsComponent,
+    EditCandidatsComponent
    
   ],
   imports: [
@@ -31,10 +39,13 @@ import { DetailsCandidatComponent } from './components/details-candidat/details-
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
+    MatDialogModule
   
     
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
