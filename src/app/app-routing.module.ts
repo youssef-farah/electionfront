@@ -13,15 +13,16 @@ const routes: Routes = [
   {
     path: 'main',
     component: MainComponent,
-    //canActivate: [AuthGuard],  // Uncomment if guard is necessary
+    canActivate: [AuthGuard],  
     children: [
       { path: 'liste', component: ListeComponent },
       { path: 'liste/:id', component: DetailsCandidatComponent },
       { path: 'favoris', component: FavorisComponent },
+      { path: '', redirectTo: 'liste', pathMatch: 'full' }
        // Default child route
     ]
   },
-  { path: '', redirectTo: 'main/login', pathMatch: 'full' },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: '**', redirectTo: 'main/favoris', pathMatch: 'full' },
   
 

@@ -21,7 +21,8 @@ export class LoginComponent {
     this.authService.login(this.cin, this.password).subscribe(
       response => {
         console.log('Login successful:', response);
-        localStorage.setItem('userId', response.user.id); // Log response
+        localStorage.setItem('userId', response.user.id); 
+        localStorage.setItem('stateElectionUser', "connectedUser")
         console.log(localStorage.getItem('userId'));
         this.router.navigate(['/main']); // Redirect to the main component
       },
