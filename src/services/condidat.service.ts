@@ -37,8 +37,5 @@ export class CondidatService {
     return this.http.delete(`${this.apiUrl}/candidats/${id}`);
   }
 
-  vote(userId: string, candidatId: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/vote/${candidatId}/${userId}`, {}); // Empty body since IDs are in the URL
-  }
-  
+ 
 }

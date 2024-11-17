@@ -12,6 +12,7 @@ import { MainComponent } from './components/main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FavorisComponent } from './components/favoris/favoris.component';
 import { DetailsCandidatComponent } from './components/details-candidat/details-candidat.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { DetailsCandidatComponent } from './components/details-candidat/details-
   
     
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
