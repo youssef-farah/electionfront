@@ -77,7 +77,7 @@ export class DetailsCandidatComponent implements OnInit {
 
 
   vote(candidatId: string) {
-    this.ser2.addVote(this.userId, candidatId).subscribe(
+    this.ser1.addVote(this.userId, candidatId).subscribe(
       (response) => {
         console.log('Vote added successfully!', response);
         // Optionally navigate to another screen after voting

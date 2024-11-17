@@ -56,11 +56,7 @@ export class UserService {
 }
 
 
-  addVote(userId: string, candidatId: string): Observable<any> {
-    const url = `${this.apiUrl}/addVote`;
-    const body = { userId, candidatId };
-    return this.http.post(url, body);
-  }
+  
 
   // Remove a vote for a specific candidate
   removeVote(userId: string, candidatId: string): Observable<any> {
