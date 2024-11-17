@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CondidatService {
 
  
-  private apiUrl = 'http://localhost:4005'; // Adjust to your backend URL
+  private apiUrl = 'http://localhost:4005/api'; // Adjust to your backend URL
 
   constructor(private http: HttpClient) { }
 
@@ -36,4 +36,9 @@ export class CondidatService {
   deleteCandidat(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/candidats/${id}`);
   }
+
+  vote(userId: string, candidatId: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/vote/${candidatId}/${userId}`, {}); // Empty body since IDs are in the URL
+  }
+  
 }

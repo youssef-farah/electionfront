@@ -39,7 +39,7 @@ export class UserService {
 
 
   getFavoris(): Observable<any> {
-    console.log(localStorage.getItem('userId'));
+    
     const userId = localStorage.getItem('userId');
     if (!userId) {
       throw new Error("User is not logged in");
@@ -48,8 +48,13 @@ export class UserService {
   }
 
   addInFavoris(userId: string, candidatId: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/${userId}/favoris/${candidatId}`, {});
+    return this.http.put(`${this.apiUrl}/users/addFavoris/${userId}/${candidatId}`, {});
   }
+
+  removeFromFavoris(userId: string, candidatId: string): Observable<any> { 
+    return this.http.delete(`${this.apiUrl}/users/editFavoris/${userId}/${candidatId}`);
+}
+
 
   addVote(userId: string, candidatId: string): Observable<any> {
     const url = `${this.apiUrl}/addVote`;
