@@ -6,10 +6,13 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from '../guard/authgaurd';
 import { FavorisComponent } from './components/favoris/favoris.component';
 import { DetailsCandidatComponent } from './components/details-candidat/details-candidat.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 
 const routes: Routes = [
   
   { path: 'login', component: LoginComponent },
+  { path: 'admin', component: DashboardComponent },
+
   {
     path: 'main',
     component: MainComponent,
