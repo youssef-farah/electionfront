@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Condidat } from '../../../models/condidat';
 import { CondidatService } from '../../../services/condidat.service';
 import { UserService } from '../../../services/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-details-candidat',
@@ -12,20 +13,24 @@ import { UserService } from '../../../services/user.service';
 export class DetailsCandidatComponent implements OnInit {
   candidatId: string | undefined;
   public candidat!: Condidat;
-  userId: string = localStorage.getItem('userId') || '';
+  userId: string ;
   favoris: string[] = [];
   isFavorited: boolean = false;
 
   public tab: any[] = [];
 
+  commentForm: FormGroup
+
+
   constructor(
     private route: ActivatedRoute,
     private ser1: CondidatService,
-    private ser2: UserService
+    private ser2: UserService, private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
     // Fetch candidate ID from route
+    this.userId = localStorage.getItem('userId') 
     this.route.paramMap.subscribe((params) => {
       this.candidatId = params.get('id')!;
       console.log('Candidat ID:', this.candidatId);
@@ -51,6 +56,11 @@ export class DetailsCandidatComponent implements OnInit {
         console.error('Error fetching favoris:', error);
       }
     );
+
+
+    this.commentForm = this.fb.group({
+      message: [, Validators.required],
+    })
   }
 
   checkIfFavorite(): void {
@@ -87,5 +97,25 @@ export class DetailsCandidatComponent implements OnInit {
         console.error('Error adding vote', error);
       }
     );
+  }
+
+
+  ajouterCommentaire(){
+    let  comment = this.commentForm.get('message').value
+    console.log(comment)
+    this.commentForm.reset()
+    this.ser1.addComment(this.candidatId,this.userId,comment).subscribe(data =>{
+      console.log(data)
+      this.candidat.comments.unshift(data.populatedComment)
+    })
+  }
+
+  deleteComment(commentId:Number){
+
+    this.ser1.deleteComment(this.candidatId,commentId).subscribe(data =>{
+      if (data.deleted){
+        this.candidat.comments=this.candidat.comments.filter(c=> c._id != commentId)
+      }
+    })
   }
 }

@@ -43,5 +43,14 @@ export class CondidatService {
     return this.http.put(url,null);
   }
 
+  addComment(candidatId:string,userId:string,message:string): Observable<any>{
+    let comment = {"message" : message}
+    return this.http.post(this.apiUrl+`/${candidatId}/comment/${userId}`,comment)
+  }
+
+  deleteComment(candidatId:string,commentId:Number): Observable<any>{
+    return this.http.delete(this.apiUrl+`/${candidatId}/comment/${commentId}`)
+  }
+
  
 }
