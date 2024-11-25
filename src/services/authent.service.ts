@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, forkJoin, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,13 +32,15 @@ export class AuthentService {
 
 
 export class AuthentService {
-  private apiUrl = 'http://localhost:4005/api/users/login';
+  private apiUrlUser = 'http://localhost:4005/api/users/login';
+  private apiUrlAdmin = 'http://localhost:4005/api/admin/login'
+
   private isAuthenticated = new BehaviorSubject<boolean>(this.hasToken());
 
   constructor(private http: HttpClient) {}
 
   login(cin: string, password: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { cin, password }).pipe(
+    return this.http.post<any>(this.apiUrlUser, { cin, password }).pipe(
       map(response => {
         if (response && response.token) {
           localStorage.setItem('token', response.token);
@@ -46,8 +48,20 @@ export class AuthentService {
         }
         return response;
       })
-    );
+    )
   }
+
+  loginAdmin(cin: string, password: string): Observable<any> {
+    return this.http.post<any>(this.apiUrlAdmin, { cin, password }).pipe(
+      map(response => {
+        if (response && response.token) {
+          localStorage.setItem('token', response.token);
+          this.isAuthenticated.next(true);
+        }
+        return response;
+      })
+    )
+  } 
 
   logout(): void {
     localStorage.removeItem('token');

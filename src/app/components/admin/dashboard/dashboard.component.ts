@@ -4,6 +4,7 @@ import { Condidat } from '../../../../models/condidat';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCandidatsComponent } from '../add-candidats/add-candidats.component';
 import { EditCandidatsComponent } from '../edit-candidats/edit-candidats.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,7 @@ import { EditCandidatsComponent } from '../edit-candidats/edit-candidats.compone
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private servicecandidat:CondidatService,public dialog: MatDialog){}
+  constructor(private servicecandidat:CondidatService,public dialog: MatDialog,private router:Router){}
   candidats:Condidat[]=[]
   ngOnInit(): void {
     this.servicecandidat.getCandidats().subscribe(data=>{
@@ -57,6 +58,12 @@ export class DashboardComponent implements OnInit {
         this.candidats = this.candidats.filter(cand => cand._id != c._id)
       })
     }
+  }
+
+
+  logout(){
+    localStorage.removeItem("stateElectionUser")
+    this.router.navigate(["/login"])
   }
 
 }

@@ -7,12 +7,14 @@ import { AuthGuard } from '../guard/authgaurd';
 import { FavorisComponent } from './components/favoris/favoris.component';
 import { DetailsCandidatComponent } from './components/details-candidat/details-candidat.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { LoginAdminComponent } from './components/admin/login-admin/login-admin.component';
+import { adminGuard } from '../guard/admin.guard';
 
 const routes: Routes = [
   
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: DashboardComponent },
-
+  { path: 'adminlogin', component: LoginAdminComponent },
+  { path: 'admin', component: DashboardComponent ,canActivate: [adminGuard]},
   {
     path: 'main',
     component: MainComponent,
