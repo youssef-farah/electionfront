@@ -7,6 +7,7 @@ import { AuthGuard } from '../guard/authgaurd';
 import { FavorisComponent } from './components/favoris/favoris.component';
 import { DetailsCandidatComponent } from './components/details-candidat/details-candidat.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { NumbersComponent } from './components/numbers/numbers.component';
 
 const routes: Routes = [
   
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'liste', component: ListeComponent },
       { path: 'liste/:id', component: DetailsCandidatComponent },
       { path: 'favoris', component: FavorisComponent },
+      { path: 'numbers', component: NumbersComponent },
       { path: '', redirectTo: 'liste', pathMatch: 'full' }
        // Default child route
     ]

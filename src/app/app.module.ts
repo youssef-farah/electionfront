@@ -17,6 +17,8 @@ import { AddCandidatsComponent } from './components/admin/add-candidats/add-cand
 import { EditCandidatsComponent } from './components/admin/edit-candidats/edit-candidats.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NumbersComponent } from './components/numbers/numbers.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     DetailsCandidatComponent,
     DashboardComponent,
     AddCandidatsComponent,
-    EditCandidatsComponent
+    EditCandidatsComponent,
+    NumbersComponent
    
   ],
   imports: [
@@ -39,7 +42,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    
   
     
   ],
