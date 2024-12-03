@@ -1,15 +1,11 @@
-    <div id="xx">
-      <div class="main">
-        <p class="sign" align="center">Welcome to Electini</p>
-        <!-- Use ngModel to bind cin and password -->
-        <form class="form1" (ngSubmit)="login()">
-          <input class="pass" type="text" placeholder="Username" [(ngModel)]="cin" name="cin" required>
-          <input class="pass" type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
-          <button class="submit" type="submit">Login</button>
-          <p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
-          <p class="forgot" align="center"><a style="color: black;" routerLink="/inscription">Create Account</a></p>
-        </form>
-      </div>
-      <div id="slogan"></div>
-    </div>
-  
+<div id="xx">
+  <div class="main">
+    <p class="sign" align="center">Welcome to Electini</p>
+    <form class="form1" (ngSubmit)="login()">
+      <input class="input-field" type="text" placeholder="Username" [(ngModel)]="cin" name="cin" required>
+      <input class="input-field" type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+      <button class="submit-btn" type="submit">Login</button>
+      <p class="forgot" align="center"><a routerLink="/inscription">Create Account</a></p>
+    </form>
+  </div>
+</div>
