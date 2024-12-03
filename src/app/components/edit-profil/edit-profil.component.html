@@ -1,0 +1,59 @@
+<div class="col-xl-8 main">
+    <!-- Account details card-->
+    <div class="card mb-4">
+        <div class="card-header">Modifier Profil</div>
+        <div class="card-body">
+            <form [formGroup]="userForm" (ngSubmit)="onUpdate()">
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                    <!-- Form Group (Nom)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1" for="inputFirstName">Nom</label>
+                        <input 
+                            class="form-control" 
+                            id="inputFirstName" 
+                            type="text" 
+                            placeholder="Entrer nom" 
+                            formControlName="nom"
+                        >
+                    </div>
+                    <!-- Form Group (Prenom)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1" for="inputLastName">Prenom</label>
+                        <input 
+                            class="form-control" 
+                            id="inputLastName" 
+                            type="text" 
+                            placeholder="Entrer prenom" 
+                            formControlName="prenom"
+                        >
+                    </div>
+                </div>
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                    <!-- Form Group (CIN)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1" for="inputCIN">CIN</label>
+                        <input 
+                            class="form-control" 
+                            id="inputCIN" 
+                            type="text" 
+                            formControlName="cin"
+                        >
+                    </div>
+                    <!-- Form Group (Date de naissance)-->
+                    <div class="col-md-6">
+                        <label class="small mb-1" for="inputBirthday">Date naissance</label>
+                        <input 
+                            class="form-control" 
+                            id="inputBirthday" 
+                            type="text" 
+                            formControlName="dateNaissance"
+                        >
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!userForm.touched">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+</div>

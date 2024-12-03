@@ -1,5 +1,10 @@
-<div class="card-container">
-  <div *ngFor="let c of candidats" class="card" style="width: 18rem; margin: 20px;">
+<div class="search-container" style="text-align: center; margin-bottom: 20px;">
+  <input type="text" class="form-control search-bar" placeholder="Rechercher un candidat..." [(ngModel)]="searchText"
+    (input)="filterCandidats()" class="bar"/>
+</div>
+
+<div class="card-container" style="display: flex; flex-wrap: wrap; justify-content: center;">
+  <div *ngFor="let c of filteredCandidats" class="card" style="width: 18rem; margin: 20px;">
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title"><strong>{{c.nom | titlecase}} {{c.prenom | titlecase}}</strong></h5>

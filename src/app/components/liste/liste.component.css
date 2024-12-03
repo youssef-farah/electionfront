@@ -13,4 +13,14 @@
     border-radius: 8px;          
     width: 200px;
   }
+
+  .bar{
+    width: 50%; 
+    margin: auto; 
+    padding: 15px; 
+    font-size: 18px; 
+    border-radius: 10px; 
+    border: 1px solid #ccc;
+    margin-top: 10px;
+  }
   
