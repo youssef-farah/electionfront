@@ -28,7 +28,7 @@ export class NumbersComponent implements OnInit {
         console.log(this.names);
 
         const config: any = {
-          type: 'polarArea',
+          type: 'bar',
           data: {
             labels: this.names,  // Use dynamic names from the candidats array
             datasets: [{

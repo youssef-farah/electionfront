@@ -24,11 +24,22 @@ export class LoginComponent {
         localStorage.setItem('userId', response.user.id); 
         localStorage.setItem('stateElectionUser', "connectedUser")
         console.log(localStorage.getItem('userId'));
-        this.router.navigate(['/main']); // Redirect to the main component
+        this.router.navigate(['/main']); 
       },
       error => {
-        console.log('Login failed:', error); // Log error
-        this.errorMessage = error.error.message || 'Login failed';
+        this.authService.loginAdmin(this.cin, this.password).subscribe(
+          response2 => {
+            console.log('Login successful:', response2);
+            localStorage.setItem('userId', response2.user.id); 
+            localStorage.setItem('stateElectionUser', "connectedUser")
+            console.log(localStorage.getItem('userId'));
+            this.router.navigate(['/main']); 
+          },
+          error => {
+            console.log('Login failed:', error); 
+            this.errorMessage = error.error.message || 'Login failed';
+          }
+        );
       }
     );
   }

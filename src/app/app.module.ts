@@ -17,6 +17,7 @@ import { AddCandidatsComponent } from './components/admin/add-candidats/add-cand
 import { EditCandidatsComponent } from './components/admin/edit-candidats/edit-candidats.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LoginAdminComponent } from './components/admin/login-admin/login-admin.component';
 import { NumbersComponent } from './components/numbers/numbers.component';
 
 
@@ -32,6 +33,7 @@ import { NumbersComponent } from './components/numbers/numbers.component';
     DashboardComponent,
     AddCandidatsComponent,
     EditCandidatsComponent,
+    LoginAdminComponent,
     NumbersComponent
    
   ],
