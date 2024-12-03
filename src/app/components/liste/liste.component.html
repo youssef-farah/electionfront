@@ -1,8 +1,8 @@
-<div *ngFor="let c of candidats" class="card-container">
-  <div class="card" style="width: 18rem; margin: 20px;"> 
+<div class="card-container">
+  <div *ngFor="let c of candidats" class="card" style="width: 18rem; margin: 20px;">
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">{{c._id}}</h5>
+      <h5 class="card-title"><strong>{{c.nom | titlecase}} {{c.prenom | titlecase}}</strong></h5>
       <p class="card-text">{{c.programe}}</p>
       <a class="btn btn-primary" (click)="check(c._id)">voir plus !</a>
     </div>

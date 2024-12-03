@@ -20,6 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LoginAdminComponent } from './components/admin/login-admin/login-admin.component';
 import { AuthInterceptor } from '../services/auth-interceptor.service';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { NumbersComponent } from './components/numbers/numbers.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
     AddCandidatsComponent,
     EditCandidatsComponent,
     LoginAdminComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    NumbersComponent
    
   ],
   imports: [
@@ -44,7 +47,8 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    
   
     
   ],
