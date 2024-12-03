@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   // GET all candidats 
-  getCandidats(): Observable<any> {
+  getUsers(): Observable<any> {
     return this.http.get(`${this.apiUrl}`);
   }
 
@@ -52,13 +52,12 @@ export class UserService {
   }
 
   removeFromFavoris(userId: string, candidatId: string): Observable<any> { 
-    return this.http.delete(`${this.apiUrl}/editFavoris/${userId}/${candidatId}`);
+    return this.http.delete(`${this.apiUrl}/${userId}/favoris/${candidatId}`);
 }
 
 
   
 
-  // Remove a vote for a specific candidate
   removeVote(userId: string, candidatId: string): Observable<any> {
     const url = `${this.apiUrl}/removeVote`;
     const body = { userId, candidatId };

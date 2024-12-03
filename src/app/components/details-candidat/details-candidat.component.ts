@@ -4,6 +4,7 @@ import { Condidat } from '../../../models/condidat';
 import { CondidatService } from '../../../services/condidat.service';
 import { UserService } from '../../../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-details-candidat',
@@ -13,6 +14,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class DetailsCandidatComponent implements OnInit {
   candidatId: string | undefined;
   public candidat!: Condidat;
+  user:User
   userId: string ;
   favoris: string[] = [];
   isFavorited: boolean = false;
@@ -44,18 +46,20 @@ export class DetailsCandidatComponent implements OnInit {
       });
     });
 
-    // Fetch favorites
     this.ser2.getFavoris().subscribe(
       (data) => {
         this.tab = data;
 
-        // After fetching favorites, check if the candidate is in the favorites
         this.checkIfFavorite();
       },
       (error) => {
         console.error('Error fetching favoris:', error);
       }
     );
+
+    this.ser2.getCandidat(this.userId).subscribe(data =>{
+      this.user=data
+    })
 
 
     this.commentForm = this.fb.group({

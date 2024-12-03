@@ -9,10 +9,13 @@ import { DetailsCandidatComponent } from './components/details-candidat/details-
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { LoginAdminComponent } from './components/admin/login-admin/login-admin.component';
 import { adminGuard } from '../guard/admin.guard';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 
 const routes: Routes = [
   
   { path: 'login', component: LoginComponent },
+  { path: 'inscription', component: InscriptionComponent },
+
   { path: 'adminlogin', component: LoginAdminComponent },
   { path: 'admin', component: DashboardComponent ,canActivate: [adminGuard]},
   {

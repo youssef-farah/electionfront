@@ -30,7 +30,7 @@
                   </button>
                     
 
-                    <button class="btn btn-primary btn-rounded" (click)="vote(candidat._id)">vote</button>
+                    <button class="btn btn-primary btn-rounded" (click)="vote(candidat._id)" [disabled]="user.voted">vote</button>
                     <h3 class="box-title mt-5">Key Highlights</h3>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-check text-success"></i>{{candidat.date_naissance}}</li>

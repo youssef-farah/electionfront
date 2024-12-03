@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NvbarComponent } from './components/nvbar/nvbar.component';
 import { ListeComponent } from './components/liste/liste.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +18,8 @@ import { EditCandidatsComponent } from './components/admin/edit-candidats/edit-c
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginAdminComponent } from './components/admin/login-admin/login-admin.component';
+import { AuthInterceptor } from '../services/auth-interceptor.service';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { LoginAdminComponent } from './components/admin/login-admin/login-admin.
     DashboardComponent,
     AddCandidatsComponent,
     EditCandidatsComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
+    InscriptionComponent
    
   ],
   imports: [
@@ -46,6 +49,7 @@ import { LoginAdminComponent } from './components/admin/login-admin/login-admin.
     
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
