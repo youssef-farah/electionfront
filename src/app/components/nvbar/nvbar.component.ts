@@ -11,6 +11,7 @@ export class NvbarComponent {
   constructor(private router:Router){}
 
   logout(){
+    localStorage.removeItem('token');
     localStorage.removeItem("userId")
     localStorage.removeItem("stateElectionUser")
     this.router.navigate(["/login"])
