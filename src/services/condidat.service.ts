@@ -52,5 +52,10 @@ export class CondidatService {
     return this.http.delete(this.apiUrl+`/${candidatId}/comment/${commentId}`)
   }
 
+
+  getCandidatsPourcentages(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/vote-percentages`);
+  }
+
  
 }

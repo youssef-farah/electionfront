@@ -11,6 +11,7 @@ import { NumbersComponent } from './components/numbers/numbers.component';
 import { LoginAdminComponent } from './components/admin/login-admin/login-admin.component';
 import { adminGuard } from '../guard/admin.guard';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { EditProfilComponent } from './components/edit-profil/edit-profil.component';
 
 const routes: Routes = [
   
@@ -28,6 +29,8 @@ const routes: Routes = [
       { path: 'liste/:id', component: DetailsCandidatComponent },
       { path: 'favoris', component: FavorisComponent },
       { path: 'numbers', component: NumbersComponent },
+      { path: 'profil', component: EditProfilComponent },
+
       { path: '', redirectTo: 'liste', pathMatch: 'full' }
        // Default child route
     ]

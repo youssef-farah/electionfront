@@ -2,3 +2,13 @@
     margin-right: 10px;
     cursor: pointer;
 }
+
+button{
+    color: #007bff; /* Changed title color to blue */
+
+}
+
+button:hover{
+    background-color:#007bff ;
+    color: aliceblue;
+}

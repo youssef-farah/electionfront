@@ -21,6 +21,7 @@ import { LoginAdminComponent } from './components/admin/login-admin/login-admin.
 import { AuthInterceptor } from '../services/auth-interceptor.service';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { NumbersComponent } from './components/numbers/numbers.component';
+import { EditProfilComponent } from './components/edit-profil/edit-profil.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { NumbersComponent } from './components/numbers/numbers.component';
     EditCandidatsComponent,
     LoginAdminComponent,
     InscriptionComponent,
-    NumbersComponent
+    NumbersComponent,
+    EditProfilComponent
    
   ],
   imports: [

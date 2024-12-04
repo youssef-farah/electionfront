@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Condidat } from '../../../models/condidat';
 import { CondidatService } from '../../../services/condidat.service';
 import { UserService } from '../../../services/user.service';
@@ -25,6 +25,7 @@ export class DetailsCandidatComponent implements OnInit {
 
 
   constructor(
+    private router:Router,
     private route: ActivatedRoute,
     private ser1: CondidatService,
     private ser2: UserService, private fb: FormBuilder
@@ -89,12 +90,13 @@ export class DetailsCandidatComponent implements OnInit {
     });
   }
 
-
   vote(candidatId: string) {
+
     this.ser1.addVote(this.userId, candidatId).subscribe(
       (response) => {
         console.log('Vote added successfully!', response);
-        // Optionally navigate to another screen after voting
+        this.router.navigate(["/main/numbers"])
+
         
       },
       (error) => {
